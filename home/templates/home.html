@@ -1,52 +1,63 @@
-
 {% extends 'base.html' %}
+{% load static %}
 
-{% block title %}home | MyTube{% endblock %}
+{% block title %}Home | MyTube{% endblock %}
+{% block extra_css %}<link rel="stylesheet" href="{% static 'home/css/home.css' %}">{% endblock %}
 
 {% block content %}
+<section class="topics-bar" aria-label="Video categories">
+  <button class="topic-arrow topic-arrow-left" type="button" aria-label="Scroll categories left"><i class="bi bi-chevron-left"></i></button>
+  <div class="topics-track" id="topicsTrack" role="group" aria-label="Filter demo videos">
+    <button class="topic-chip is-active" type="button" data-category="All" aria-pressed="true">All</button>
+    <button class="topic-chip" type="button" data-category="Music">Music</button>
+    <button class="topic-chip" type="button" data-category="Mixes">Mixes</button>
+    <button class="topic-chip" type="button" data-category="Technology">Technology</button>
+    <button class="topic-chip" type="button" data-category="Programming">Programming</button>
+    <button class="topic-chip" type="button" data-category="Live">Live</button>
+    <button class="topic-chip" type="button" data-category="Gaming">Gaming</button>
+    <button class="topic-chip" type="button" data-category="Podcasts">Podcasts</button>
+    <button class="topic-chip" type="button" data-category="Travel">Travel</button>
+    <button class="topic-chip" type="button" data-category="Education">Education</button>
+    <button class="topic-chip" type="button" data-category="Recently uploaded">Recently uploaded</button>
+    <button class="topic-chip" type="button" data-category="Watched">Watched</button>
+  </div>
+  <button class="topic-arrow topic-arrow-right" type="button" aria-label="Scroll categories right"><i class="bi bi-chevron-right"></i></button>
+</section>
 
-<h1>Welcome to Home Page</h1>
+<div class="home-feed">
+  <section class="video-grid" aria-label="Recommended videos" id="videoGrid">
+    <article class="video-card" data-category="Technology">
+      <a class="thumbnail" href="#" data-demo-link aria-label="Watch: Building a Modern Website"><img src="https://picsum.photos/id/0/640/360" alt="Laptop workspace" loading="eager"><span class="duration">12:48</span></a>
+      <div class="video-details"><span class="creator-avatar avatar-teal">D</span><div class="video-copy"><h3><a href="#" data-demo-link>Building a Modern Website with HTML, CSS &amp; JavaScript</a></h3><p>Dev Studio <i class="bi bi-patch-check-fill"></i></p><p>124K views · 2 days ago</p></div><button class="video-menu" type="button" aria-label="Video options"><i class="bi bi-three-dots-vertical"></i></button></div>
+    </article>
+    <article class="video-card" data-category="Mixes Music">
+      <a class="thumbnail" href="#" data-demo-link aria-label="Watch: Relaxing Music Mix"><img src="https://picsum.photos/id/1018/640/360" alt="Mountain landscape" loading="eager"><span class="mix-label"><i class="bi bi-play-fill"></i> Mix</span></a>
+      <div class="video-details"><span class="creator-avatar avatar-purple">M</span><div class="video-copy"><h3><a href="#" data-demo-link>My Mix — Relaxing Music for Focus &amp; Study</a></h3><p>Music Hub</p><p>Indie, ambient, and more · Playlist</p></div><button class="video-menu" type="button" aria-label="Video options"><i class="bi bi-three-dots-vertical"></i></button></div>
+    </article>
+    <article class="video-card" data-category="Education Programming">
+      <a class="thumbnail" href="#" data-demo-link aria-label="Watch: Python OOP Tutorial"><img src="https://picsum.photos/id/180/640/360" alt="Laptop on a desk" loading="eager"><span class="duration">24:15</span></a>
+      <div class="video-details"><span class="creator-avatar avatar-blue">P</span><div class="video-copy"><h3><a href="#" data-demo-link>Python OOP Explained: Classes, Objects and Inheritance</a></h3><p>Python Studio <i class="bi bi-patch-check-fill"></i></p><p>86K views · 1 week ago</p></div><button class="video-menu" type="button" aria-label="Video options"><i class="bi bi-three-dots-vertical"></i></button></div>
+    </article>
+  </section>
 
-<p style="margin: 15px 0;">
-    This is the dynamic content area.
-</p>
-
-<div style="
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
-    margin-top: 25px;
-">
-
-    {% for i in "123456789" %}
-
-    <div style="
-        background: white;
-        border-radius: 12px;
-        overflow: hidden;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    ">
-
-        <div style="
-            height: 140px;
-            background: #ddd;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 35px;
-        ">
-            ▶
-        </div>
-
-        <div style="padding: 15px;">
-            <h3>Video {{ forloop.counter }}</h3>
-            <p>Sample video description</p>
-        </div>
-
+  <section class="shorts-shelf" aria-label="Shorts">
+    <div class="shelf-heading"><h2><i class="bi bi-play-btn-fill shorts-icon"></i> Shorts</h2><button type="button" class="shelf-menu" aria-label="Shorts options"><i class="bi bi-three-dots-vertical"></i></button></div>
+    <div class="shorts-grid">
+      <article class="short-card"><a href="#" data-demo-link><div class="short-image"><img src="https://picsum.photos/id/1011/360/640" alt="Scenic travel photo" loading="lazy"></div><h3>Beautiful places you should visit</h3><p>1.2M views</p></a></article>
+      <article class="short-card"><a href="#" data-demo-link><div class="short-image"><img src="https://picsum.photos/id/1060/360/640" alt="Coffee photo" loading="lazy"></div><h3>A perfect coffee break ☕</h3><p>852K views</p></a></article>
+      <article class="short-card"><a href="#" data-demo-link><div class="short-image"><img src="https://picsum.photos/id/1025/360/640" alt="Animal photo" loading="lazy"></div><h3>Funniest animal moments</h3><p>3.4M views</p></a></article>
+      <article class="short-card"><a href="#" data-demo-link><div class="short-image"><img src="https://picsum.photos/id/1039/360/640" alt="Landscape photo" loading="lazy"></div><h3>Nature in 30 seconds</h3><p>215K views</p></a></article>
+      <article class="short-card"><a href="#" data-demo-link><div class="short-image"><img src="https://picsum.photos/id/1043/360/640" alt="Landscape photo" loading="lazy"></div><h3>Quick travel inspiration</h3><p>590K views</p></a></article>
     </div>
+  </section>
 
-    {% endfor %}
-
+  <section class="video-grid more-videos" aria-label="More videos">
+    <article class="video-card" data-category="Travel"><a class="thumbnail" href="#" data-demo-link><img src="https://picsum.photos/id/1036/640/360" alt="Travel scenery" loading="lazy"><span class="duration">18:20</span></a><div class="video-details"><span class="creator-avatar avatar-orange">T</span><div class="video-copy"><h3><a href="#" data-demo-link>A Weekend Trip: Exploring Amazing Destinations</a></h3><p>Travel Diaries</p><p>45K views · 3 days ago</p></div><button class="video-menu" type="button" aria-label="Video options"><i class="bi bi-three-dots-vertical"></i></button></div></article>
+    <article class="video-card" data-category="Gaming Live"><a class="thumbnail" href="#" data-demo-link><img src="https://picsum.photos/id/96/640/360" alt="Colorful abstract image" loading="lazy"><span class="duration">LIVE</span></a><div class="video-details"><span class="creator-avatar avatar-red">G</span><div class="video-copy"><h3><a href="#" data-demo-link>Live Gaming Session — Join the Community!</a></h3><p>Game Station</p><p>1.8K watching</p></div><button class="video-menu" type="button" aria-label="Video options"><i class="bi bi-three-dots-vertical"></i></button></div></article>
+    <article class="video-card" data-category="Podcasts Technology"><a class="thumbnail" href="#" data-demo-link><img src="https://picsum.photos/id/20/640/360" alt="Desk workspace" loading="lazy"><span class="duration">42:07</span></a><div class="video-details"><span class="creator-avatar avatar-green">C</span><div class="video-copy"><h3><a href="#" data-demo-link>Tech Talk: The Future of Web Development</a></h3><p>Code Academy</p><p>39K views · 5 days ago</p></div><button class="video-menu" type="button" aria-label="Video options"><i class="bi bi-three-dots-vertical"></i></button></div></article>
+  </section>
+  <p class="empty-state" id="emptyState" hidden>No demo videos in this category yet.</p>
 </div>
-
 {% endblock %}
+
+{% block extra_js %}<script src="{% static 'home/js/home.js' %}"></script>{% endblock %}

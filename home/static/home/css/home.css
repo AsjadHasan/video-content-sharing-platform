@@ -1,0 +1,41 @@
+/* Homepage only: keeps the shared base layout reusable for Shorts/watch pages. */
+.main-content { padding: var(--header-height) 24px 48px; }
+.topics-bar { position: sticky; top: var(--header-height); z-index: 500; height: 72px; display: flex; align-items: center; gap: 6px; background: var(--bg); }
+.topics-track { display: flex; align-items: center; gap: 12px; overflow-x: auto; scrollbar-width: none; scroll-behavior: smooth; flex: 1; min-width: 0; }
+.topics-track::-webkit-scrollbar { display: none; }
+.topic-chip { flex: 0 0 auto; background: #272727; color: #f1f1f1; border: 0; border-radius: 8px; padding: 9px 13px; white-space: nowrap; font-size: 14px; font-weight: 600; }
+.topic-chip:hover { background: #3f3f3f; }
+.topic-chip.is-active { background: #f1f1f1; color: #0f0f0f; }
+.topic-arrow { flex: 0 0 34px; width: 34px; height: 34px; border: 0; border-radius: 50%; background: var(--bg); color: white; }
+.topic-arrow:hover { background: #272727; }
+.home-feed { padding-top: 8px; }
+.video-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 18px; row-gap: 42px; }
+.video-card { min-width: 0; }
+.thumbnail { display: block; position: relative; width: 100%; aspect-ratio: 16 / 9; border-radius: 12px; overflow: hidden; background: #252525; }
+.thumbnail img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .25s ease; }
+.thumbnail:hover img { transform: scale(1.025); }
+.duration, .mix-label { position: absolute; bottom: 8px; right: 8px; background: rgba(0,0,0,.84); color: #fff; border-radius: 4px; font-size: 12px; font-weight: 700; padding: 3px 5px; }
+.video-details { display: flex; gap: 12px; padding-top: 12px; align-items: flex-start; }
+.creator-avatar { display: grid; place-items: center; width: 36px; height: 36px; flex: 0 0 36px; border-radius: 50%; color: white; font-weight: bold; }
+.avatar-teal { background: #087f79; } .avatar-purple { background: #7152a4; } .avatar-blue { background: #3b6d9d; } .avatar-orange { background: #b56d30; } .avatar-red { background: #ae3d4d; } .avatar-green { background: #508151; }
+.video-copy { min-width: 0; flex: 1; }
+.video-copy h3 { font-size: 15px; line-height: 1.4; font-weight: 600; margin: 0 0 5px; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; }
+.video-copy p { color: #aaa; font-size: 13px; line-height: 1.5; margin: 0; }
+.video-copy .bi-patch-check-fill { font-size: 12px; }
+.video-menu, .shelf-menu { background: transparent; color: #eee; border: 0; width: 30px; height: 30px; border-radius: 50%; flex: 0 0 30px; }
+.video-menu:hover, .shelf-menu:hover { background: #272727; }
+.shorts-shelf { margin: 40px 0 46px; }
+.shelf-heading { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
+.shelf-heading h2 { display: flex; align-items: center; gap: 12px; font-size: 21px; margin: 0; }
+.shorts-icon { color: #ff0033; font-size: 26px; }
+.shorts-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; }
+.short-card { min-width: 0; }
+.short-image { aspect-ratio: 9 / 16; overflow: hidden; border-radius: 12px; background: #222; }
+.short-image img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.short-card h3 { margin: 10px 0 4px; font-size: 15px; line-height: 1.4; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; }
+.short-card p { margin: 0; font-size: 13px; color: #aaa; }
+.empty-state { padding: 40px 0; color: #aaa; }
+@media (min-width: 1800px) { .video-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+@media (max-width: 1250px) { .video-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .shorts-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } .short-card:nth-child(5) { display: none; } }
+@media (max-width: 850px) { .shorts-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } .short-card:nth-child(4) { display: none; } }
+@media (max-width: 700px) { .main-content { padding: var(--header-height) 12px 30px; } .topics-bar { height: 60px; gap: 2px; } .topics-track { gap: 8px; } .video-grid { grid-template-columns: 1fr; row-gap: 28px; } .shorts-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; } .short-card:nth-child(3) { display: none; } .shorts-shelf { margin: 32px 0; } }
