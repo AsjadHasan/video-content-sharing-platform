@@ -32,6 +32,12 @@
 </section>
 
 <div class="home-feed">
+  
+    <article class="video-card" data-category="{{ video.category }}">
+      <a class="thumbnail" href="#" data-demo-link aria-label="Watch: {{ video.title }}"><img src="{{ video.thumbnail_url }}" alt="{{ video.title }}" loading="eager"><span class="duration">{{ video.duration }}</span></a>
+      <div class="video-details"><span class="creator-avatar avatar-teal">{{ video.creator_initials }}</span><div class="video-copy"><h3><a href="#" data-demo-link>{{ video.title }}</a></h3><p>{{ video.creator_name }} <i class="bi bi-patch-check-fill"></i></p><p>{{ video.views }} views · {{ video.uploaded_at|timesince }} ago</p></div><button class="video-menu" type="button" aria-label="Video options"><i class="bi bi-three-dots-vertical"></i></button></div>
+    </article>
+  
   <section class="video-grid" aria-label="Recommended videos" id="videoGrid">
     <article class="video-card" data-category="Technology">
       <a class="thumbnail" href="#" data-demo-link aria-label="Watch: Building a Modern Website"><img src="https://picsum.photos/id/0/640/360" alt="Laptop workspace" loading="eager"><span class="duration">12:48</span></a>
